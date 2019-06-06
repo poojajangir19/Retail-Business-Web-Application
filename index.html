@@ -1,0 +1,477 @@
+<%@pagelanguage="java"contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+
+<!DOCTYPEhtmlPUBLIC"-//W3C//DTD HTML 4.01
+Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+
+<%
+System.out.println(" Entered ");
+String usertypeid1=(String)session.getAttribute("usertypeid"); System.out.println(" ID "+usertypeid1);
+%>
+
+<html>
+<head>
+<metahttp-equiv="Content-Type"content="text/html; charset=UTF-8"/>
+
+<title>Service provider</title>
+<metaname="description"content="Description"/>
+<metaname="keywords"content="Keywords"/>
+<linkrel="stylesheet"href="style.css"type="text/css"media="screen"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript">
+function Servicevalidate()
+{
+var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+var address = document.form1.mail.value;
+var x=document.form1.cno.value;
+var index=document.form1.user.selectedIndex;
+if(index==0)
+    {
+        alert("Please select the user type");
+        return false;
+    }
+else if(document.form1.fname.value==""||document.form1.lname.value==" "||document.form1.uid.value==""||document.form1.pass.value==""||document.for m1.repass.value==""||document.form1.bname.value==""||document.form1.rid.val ue==""||document.form1.add.value==""||document.form1.mail.value==""||docume nt.form1.cno.value=="")
+    {
+        alert("All The Fields Muste Be Entered");
+        return false;
+    }
+else if(document.form1.pass.value.length < 6)
+    {
+        alert("Password Field Should Contain atleast 6 characters");
+        return false;
+    }
+else if(document.form1.pass.value!=document.form1.repass.value)
+    {
+        alert(document.form1.pass.value);
+        alert(document.form1.repass.value);
+        alert("Password MisMatch");
+        return false;
+    }
+else if(reg.test(address) == false)
+    {
+        alert('Invalid Email Address');
+        return false;
+    }
+else if(isNaN(x)||x.indexOf(" ")!=-1)
+    {
+        alert("Enter Numeric value");
+        return false;
+    }
+else if(document.form1.cno.value.length!=10)
+    {
+        alert("Please enter valid Phone number");
+        return false;
+    }
+else
+    {
+        return true;
+    }
+}
+function uservalidate()
+{
+    var reg1 = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za- z]{2,4})$/;
+    var address1 = document.form1.mail1.value;
+    var y=document.form1.uid1.value;
+    var index=document.form1.user.selectedIndex;
+    varindex=document.form1.user.selectedIndex;
+    if(index==0)
+    {
+        alert("Please select the user type");
+        return false;
+    }
+    else if(document.form1.fname1.value==""||document.form1.lname1.value==""||document.form1.uid1.value==""||document.form1.add1.value==""||document. form1.mail1.value=="")
+    {
+        alert("All The Fields Muste Be Entered");
+        return false;
+    }
+    else if(reg1.test(address1) == false)
+    {
+        alert('Invalid Email Address');
+        return false;
+    }
+    else if(isNaN(y)||y.indexOf(" ")!=-1)
+    {
+        alert("Enter Numeric value");
+        return false;
+    }
+    else if(document.form1.uid1.value.length!=10)
+    {
+        alert("Please enter valid Phone number");
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+function fun()
+{
+    document.getElementById("serviceprovider").style.visibility="hidden";
+    document.getElementById("user1").style.visibility="hidden";
+}
+function fun1()
+{
+    var index=document.form1.user.selectedIndex;
+    if(index==0)
+    {
+        alert("Please select the user type");
+    }
+    if(index==1)
+    {
+        document.getElementById("serviceprovider").style.visibility="visible";
+        document.getElementById("user1").style.visibility="hidden";
+    }
+    if(index==2)
+    {
+        document.getElementById("serviceprovider").style.display="none";
+        document.getElementById("user1").style.visibility="visible";
+    }
+}
+</script>
+</head>
+<bodyonload="javascript:fun()">
+<divid="art-main">
+<divclass="art-sheet">
+<divclass="art-sheet-tl"></div>
+<divclass="art-sheet-tr"></div>
+<divclass="art-sheet-bl"></div>
+<divclass="art-sheet-br"></div>
+<divclass="art-sheet-tc"></div>
+<divclass="art-sheet-bc"></div>
+<divclass="art-sheet-cl"></div>
+<divclass="art-sheet-cr"></div>
+<divclass="art-sheet-cc"></div>
+<divclass="art-sheet-body">
+<divclass="art-header">
+<divclass="art-header-clip">
+<divclass="art-header-png"></div>
+<divclass="art-header-jpeg"></div>
+</div>
+
+<divclass="art-headerobject"></div>
+<divclass="art-logo">
+<h1class="art-logo-name"><ahref="./index.html">Service Provider</a></h1>
+</div>
+</div>
+
+<divclass="cleared reset-box"></div>
+<divclass="art-nav">
+<divclass="art-nav-l"></div>
+<divclass="art-nav-r"></div>
+<divclass="art-nav-outer">
+<ulclass="art-hmenu">
+<li>
+<ahref="./homepage.jsp"class="active"><spanclass="l"></span><spancla ss="r"></span><spanclass="t">Home</span></a>
+</li>
+<li>
+<ahref="./aboutus.html"class="active"><spanclass="l"></span><spanclas s="r"></span><spanclass="t">About us</span></a>
+</li>
+<li>
+<ahref="./Services.html"class="active"><spanclass="l"></span><spanclas s="r"></span><spanclass="t">Services</span></a>
+</li>
+<li>
+<ahref="./Contactus.jsp"class="active"><spanclass="l"></span><spancla ss="r"></span><spanclass="t">Contact us</span></a>
+</li>
+</ul>
+</div>
+</div>
+<divclass="cleared reset-box"></div>
+<divclass="art-content-layout">
+<divclass="art-content-layout-row">
+<divclass="art-layout-cell art-content">
+<divclass="art-post">
+<divclass="art-post-body">
+<divclass="art-post-inner art-article">
+<divclass="art-postmetadataheader">
+<h2class="art-postheader"align="center"> REGISTRATION FORM
+</h2>
+<divclass="cleared"></div>
+</div>
+<divclass="art-postcontent">
+ <formname="form1"action="Register"method="post">
+<tablealign="center">
+<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+<tralign="center"><td>User-Type<selectname="user"onchange="fun1()">
+<option>-----Select-----</option>
+<option>ServiceProviders</option>
+<option>USERS</option>
+</select>
+</td></tr>
+</table>
+
+<divid="serviceprovider">
+<tablealign="center">
+<tr><td>FirstName</td><td><inputtype="text"name="fname"></td></tr>
+<tr><td>LastName</td><td><inputtype="text"name="lname"></td></tr>
+<tr><td>UserID</td><td><inputtype="text"name="uid"></td></tr>
+<tr><td>password</td><td><inputtype="password"name="pass"></td></tr>
+<tr><td>ConfirmPassword</td><td><inputtype="password"name="repass"></td
+></tr>
+<tr><td>BussinessName</td><td><inputtype="text"name="bname"></td></tr>
+<tr><td>Registration_ID</td><td><inputtype="text"name="rid"></td></tr>
+<tr><td>Address</td><td><inputtype="text"name="add"></td></tr>
+<tr><td>Email_ID</td><td><inputtype="text"name="mail"></td></tr>
+<tr><td>ContactNo</td><td><inputtype="text"name="cno"></td></tr>
+<tr><td><inputtype="submit"value="register"onclick="return Servicevalidate();"></td><td><inputtype="reset"value="Clear"></td></tr>
+</table>
+
+</div>
+<divid="user1">
+<tablealign="center">
+<tr><td>FirstName</td><td><inputtype="text"name="fname1"></td></tr>
+<tr><td>LastName</td><td><inputtype="text"name="lname1"></td></tr>
+<tr><td>UserID</td><td><inputtype="text"name="uid1"></td></tr>
+<tr><td>Address</td><td><inputtype="text"name="add1"></td></tr>
+<tr><td>Email_ID</td><td><inputtype="text"name="mail1"></td></tr>
+<tr><td><inputtype="submit"value="register"onclick="return uservalidate()"></td><td><inputtype="reset"value="Clear"></td></tr>
+</table>
+</div>
+</form>
+</div>
+<divclass="cleared">
+</div>
+</div>
+
+<divclass="cleared"></div>
+</div>
+</div>
+<divclass="cleared"></div>
+</div>
+</div>
+<divclass="art-footer">
+<divclass="art-footer-t"></div>
+<divclass="art-footer-b"></div>
+<divclass="art-footer-body">
+<divclass="art-footer-center">
+<divclass="art-footer-wrapper">
+<divclass="art-footer-text">
+<ahref="#"class="art-rss-tag-icon"title="RSS"></a>
+<p>Copyright © 2011. All Rights Reserved.</p>
+<divclass="cleared"></div>
+</div>
+</div>
+</div>
+
+<divclass="cleared"></div>
+</div>
+</div>
+</div>
+</body>
+</html>
+ 
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%@ include file="DbConnection.jsp" %>
+<%
+String option=request.getParameter("category_name"); System.out.println("option "+option);
+%>
+<%
+String query="select distinct(cate_name) from categories where BusinessName='"+option+"'";
+System.out.println("query "+query); rs=st.executeQuery(query); System.out.println("query Executed"); if(rs!=null){
+while(rs.next()){
+System.out.println(rs.getString(1));
+%>
+<input type="checkbox" name="itemname" value="<%=rs.getString(1)%>"><%=rs.getString(1)%>
+<%
+}
+}else
+{
+System.out.println("no items");
+%>
+<h1>no items</h1>
+<%
+}
+%>
+</body>
+</html>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%@page import="java.security.KeyFactory"%>
+<%@page import="java.security.Key" %>
+<%@page import="java.security.PublicKey" %>
+<%@page import="java.security.KeyPairGenerator"%>
+<%@page import="java.security.KeyPair"%>
+<%@page import="java.security.spec.RSAPublicKeySpec" %>
+<%@page import="java.security.spec.RSAPrivateKeySpec" %>
+<%@page import="javax.crypto.Cipher"%>
+<%@page import="java.sql.*"%>
+<%@page import="javax.mail.*"%>
+<%@page import="javax.mail.internet.*"%>
+<%@page import="java.util.*" %>
+<%@page import="java.io.*"%>
+<%@page import="java.math.BigInteger"%>
+<%
+String uid3=request.getParameter("uid1"); String to=""; System.out.println("to"+to);
+Try
+{
+Class.forName("com.mysql.jdbc.Driver");
+Connection con=DriverManager.getConnection("jdbc:mysql://ec2- 23-21-211-172.compute- 1.amazonaws.com:3306/services1","services1","services1");
+PreparedStatement pst=con.prepareStatement("select Email_ID,password from newuser where uid1=?");
+pst.setString(1,uid3);
+pst.execute();
+ResultSet rs=pst.getResultSet(); if(rs.next())
+{
+to=rs.getString(1);
+System.out.println("to000000000000000000000000000000000000"+to);
+String SMTP_HOST_NAME = "smtp.gmail.com"; String SMTP_PORT = "465";
+String emailMsgTxt = "Test Message Contents"; String emailSubjectTxt = "A test from gmail";
+String emailFromAddress = "coign.java.mini2010@gmail.com"; String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory"; String sendTo = to;
+boolean debug = true;
+Properties props = new Properties();
+props.put("mail.smtp.host", SMTP_HOST_NAME); props.put("mail.smtp.auth", "true");
+props.put("mail.debug", "true"); props.put("mail.smtp.port", SMTP_PORT); props.put("mail.smtp.socketFactory.port", SMTP_PORT);
+props.put("mail.smtp.socketFactory.class", SSL_FACTORY); props.put("mail.smtp.socketFactory.fallback", "false");
+javax.mail.Session session1 = javax.mail.Session.getDefaultInstance(props,new javax.mail.Authenticator() {
+protected PasswordAuthentication getPasswordAuthentication()
+{
+return new PasswordAuthentication("coign.java.mini2010@gmail.com", "mini@2010");
+}
+});
+session1.setDebug(debug);
+Message msg = new MimeMessage(session1); InternetAddress addressFrom = new
+InternetAddress(emailFromAddress);
+msg.setFrom(addressFrom);
+InternetAddress addressTo =new InternetAddress(sendTo); msg.setRecipient(Message.RecipientType.TO, addressTo);
+// Setting the Subject and Content Type
+msg.setSubject("message From Secure Login"); msg.setContent("Your New Encrypted Password : Click here to
+decrypt http://localhost:8082/defence1/getnewpassword.jsp" , "text/plain"); Transport.send(msg);
+System.out.println("Message Send.....");
+}
+else
+{
+request.setAttribute("invalid", "invalid");%>
+<jsp:forward page="reqpassword.jsp"/>
+<%
+}
+}catch(Exception e){ e.printStackTrace();
+out.println("Sorry for the inconvenience. Will be ready in a moment");
+}
+%>
+<jsp:forward page="newpwd.jsp"/>
+</body>
+</html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!--
+Created by Artisteer v3.0.0.39952
+Base template (without user's data) checked by http://validator.w3.org : "This page is valid XHTML 1.0 Transitional"
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Service provider</title>
+<meta name="description" content="Description" />
+<meta name="keywords" content="Keywords" />
+<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+<!--[if IE 6]><link rel="stylesheet" href="style.ie6.css" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="style.ie7.css" type="text/css" media="screen" /><![endif]-->
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="script.js"></script>
+<SCRIPT type="text/javascript"> function disableBackButton()
+{
+window.history.forward();
+}
+setTimeout("disableBackButton()", 0);
+</SCRIPT>
+</head>
+<body onload="disableBackButton()" onpageshow="if (event.persisted) noBack();" onunload="">
+<div id="art-main">
+<div class="art-sheet">
+<div class="art-sheet-tl"></div>
+<div class="art-sheet-tr"></div>
+<div class="art-sheet-bl"></div>
+<div class="art-sheet-br"></div>
+<div class="art-sheet-tc"></div>
+<div class="art-sheet-bc"></div>
+<div class="art-sheet-cl"></div>
+<div class="art-sheet-cr"></div>
+<div class="art-sheet-cc"></div>
+<div class="art-sheet-body">
+<div class="art-header">
+<div class="art-header-clip">
+<div class="art-header-png"></div>
+<div class="art-header-jpeg"></div>
+</div>
+<div class="art-headerobject"></div>
+<div class="art-logo">
+<h1 class="art-logo-name"><a href="./index.html">Service Provider</a></h1>
+<div class="art-nav">
+<div class="art-nav-l"></div>
+<div class="art-nav-r"></div>
+<div class="art-nav-outer">
+<ul class="art-hmenu">
+<li>
+<a href="./newuser.jsp" class="active"><span class="l"></span><span class="r"></span><span class="t">Home</span></a>
+</li>
+<li>
+<a href="./selected.jsp" class="active"><span class="l"></span><span class="r"></span><span class="t">Unsubscrib</span></a>
+</li>
+<li><a href="Logout.jsp" class="active"><span class="l"></span><span class="r"></span><span class="t">Logout</span></a>
+</li>
+</ul>
+<div class="art-content-layout">
+<div class="art-content-layout-row">
+<div class="art-layout-cell art-content">
+<div class="art-post">
+<div class="art-post-body">
+<div class="art-post-inner art-article">
+<div class="art-postmetadataheader">
+<h2 class="art-postheader" align="center" > NEW USER HOMEPAGE
+</h2>
+<div class="cleared"></div>
+</div>
+<div class="art-postcontent">
+<center>
+<br/><br/>
+<font color="white" size="6" style="middle" face="Times New Roman">Your Subscription completed successfully.<br/>
+</font>
+</center>
+</div>
+<div class="cleared"></div>
+</div>
+<div class="cleared"></div>
+</div>
+</div>
+<div class="cleared"></div>
+</div>
+</div>
+</div>
+<div class="cleared"></div>
+<div class="cleared"></div>
+</div>
+</div>
+<div class="art-footer">
+<div class="art-footer-t"></div>
+<div class="art-footer-b"></div>
+<div class="art-footer-body">
+<div class="art-footer-center">
+<div class="art-footer-wrapper">
+<div class="art-footer-text">
+<a href="#" class="art-rss-tag-icon" title="RSS"></a>
+<p>Copyright © 2011. All Rights Reserved.</p>
+<div class="cleared"></div>
+</div>
+</div>
+</div>
+<div class="cleared"></div>
+</div>
+</div>
+</div>
+</body>
+</html>
